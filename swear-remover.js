@@ -16,6 +16,16 @@ for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
 }
 
 setInterval(function() {
+    for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
+        if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
+            continue;
+        }
+        if(document.querySelectorAll("div")[divs].getAttribute("aria-label").indexOf("의 메시지") != -1) {
+            message_div = document.querySelectorAll("div")[divs];
+            break;
+        }
+    }
+    // console.log(message_div);
     for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
         // console.log("div."+message_div.className+">div");
         // console.log(document.querySelectorAll("div."+message_div.className+">div"));
@@ -42,12 +52,11 @@ setInterval(function() {
                     for(temp_2 = 0; temp_2 < _childnodes.length; temp_2++) {
                         if(_childnodes[temp_2].className.indexOf("markup-") != -1 && _childnodes[temp_2].className.indexOf("messageContent-")) {
                             _message_content = _childnodes[temp_2];
+                            if(_message_content === null) {
+                                continue;
+                            }
                             for(temp_3 = 0; temp_3 < blacklisted_swears.length; temp_3++) {
-                                if(_message_content === null) {
-                                    continue;
-                                }
-
-                                _message_content.innerHTML = _message_content.innerHTML.replace(blacklisted_swears[0], "<span style=\"color: red;\">삐-</span>");
+                                _message_content.innerHTML = _message_content.innerHTML.replace(blacklisted_swears[temp_3], "<span style=\"color: red;\">삐-</span>");
                             }
                             // console.log(_message_content.innerHTML);
                             
