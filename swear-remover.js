@@ -56,7 +56,10 @@ setInterval(function() {
                                 continue;
                             }
                             for(temp_3 = 0; temp_3 < blacklisted_swears.length; temp_3++) {
-                                _message_content.innerHTML = _message_content.innerHTML.replace(blacklisted_swears[temp_3], "<span style=\"color: red;\">삐-</span>");
+                                if(_message_content.indexOf("<span style=\"color: red;\" onmouseover=\"this.innerHTML = '"+blacklisted_swears[temp_3]+"';\" onmouseout=\"this.innerHTML = '삐-'\">삐-</span>") != -1) {
+                                    continue;
+                                }
+                                _message_content.innerHTML = _message_content.innerHTML.replace((new RegExp(blacklisted_swears[temp_3], "g"), "<span style=\"color: red;\" onmouseover=\"this.innerHTML = '"+blacklisted_swears[temp_3]+"';\" onmouseout=\"this.innerHTML = '삐-'\">삐-</span>");
                             }
                             // console.log(_message_content.innerHTML);
                             
