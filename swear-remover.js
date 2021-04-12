@@ -3,7 +3,7 @@ var message_div = null;
 var gotdiv = null;
 var _message = null;
 var interval_is_running = false;
-var blacklisted_swears = ["욕설로 분류되는 착한 일반 텍스트", "씨발", "개새끼", "좆"];
+var blacklisted_swears = ["이것은 욕설입니다."]
 
 for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
     if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
@@ -43,9 +43,13 @@ setInterval(function() {
                         if(_childnodes[temp_2].className.indexOf("markup-") != -1 && _childnodes[temp_2].className.indexOf("messageContent-")) {
                             _message_content = _childnodes[temp_2];
                             for(temp_3 = 0; temp_3 < blacklisted_swears.length; temp_3++) {
+                                if(_message_content === null) {
+                                    continue;
+                                }
+                                
                                 _message_content.innerHTML = _message_content.innerHTML.replace(blacklisted_swears[0], "<span style=\"color: red;\">삐-</span>");
                             }
-                            console.log(_message_content.innerHTML);
+                            // console.log(_message_content.innerHTML);
                             
                             // console.log(_message_content);
                             break;
