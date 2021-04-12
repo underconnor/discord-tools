@@ -3,7 +3,7 @@ var message_div = null;
 var gotdiv = null;
 var _message = null;
 var interval_is_running = false;
-var blacklisted_swears = ["이것은 욕설입니다."]
+var blacklisted_swears = ["씨발", "개새끼", "병신", "ㅄ", "ㅂㅅ", "좆", "ㅆㅂ", "ㅅㅂ", "욕설로 분류되는 욕설이 아닌 매우 착한 테스트용 텍스트"]
 
 for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
     if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
@@ -46,7 +46,7 @@ setInterval(function() {
                                 if(_message_content === null) {
                                     continue;
                                 }
-                                
+
                                 _message_content.innerHTML = _message_content.innerHTML.replace(blacklisted_swears[0], "<span style=\"color: red;\">삐-</span>");
                             }
                             // console.log(_message_content.innerHTML);
