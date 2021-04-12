@@ -77,4 +77,4 @@ setInterval(function() {
             }
         }
     }
-}, 200);
+}, 1000);
