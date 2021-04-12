@@ -60,7 +60,8 @@ setInterval(function() {
                                     continue;
                                 }
                                 nowcont = _message_content.innerHTML;
-                                _message_content.innerHTML = _message_content.innerHTML.replace(new RegExp(blacklisted_swears[temp_3], "g"), "<span style=\"color: red;\" onmouseover=\"this.innerHTML = '"+blacklisted_swears[temp_3]+"';\" onmouseout=\"this.innerHTML = '삐-'\">삐-</span>");
+                                content = "<span style='color: red;' onmouseover='this.innerHTML = \""+blacklisted_swears[temp_3]+"\";' onmouseout='this.innerHTML = \"삐-\"'>삐-</span>";
+                                _message_content.innerHTML = _message_content.innerHTML.replace(new RegExp(blacklisted_swears[temp_3], "g"), content);
                                 if(_message_content.innerHTML != nowcont) {
                                     _message_content.dataset.modified = true;
                                 }
