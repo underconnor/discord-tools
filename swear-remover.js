@@ -62,7 +62,7 @@ setInterval(function() {
                                 nowcont = _message_content.innerHTML;
                                 _message_content.innerHTML = _message_content.innerHTML.replace(new RegExp(blacklisted_swears[temp_3], "g"), "<span style=\"color: red;\" onmouseover=\"this.innerHTML = '"+blacklisted_swears[temp_3]+"';\" onmouseout=\"this.innerHTML = '삐-'\">삐-</span>");
                                 if(_message_content.innerHTML != nowcont) {
-                                    _message_content.dataset.modified = True;
+                                    _message_content.dataset.modified = true;
                                 }
                             }
                             // console.log(_message_content.innerHTML);
