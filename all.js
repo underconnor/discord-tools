@@ -132,7 +132,7 @@ setInterval(function() {
   if(document.querySelector("#app-mount>div>div>div>div>div>div>div>button>div>span") != null) {
     document.querySelector("#app-mount>div>div>div>div>div>div>div>button>div>span").click()
   }
-}, 1000);
+}, 200);
 
 function reply_ui_check() {
     return document.querySelectorAll("form>div>div>div>div>div>div")[1].className.indexOf("buttons-") == 0 || document.querySelectorAll("form>div>div>div>div>div>div")[1].className.indexOf("attachWrapper-") == 0
