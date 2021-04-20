@@ -22,15 +22,21 @@ for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
 }
 
 setInterval(function() {
-    for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
-        if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
-            continue;
-        }
-        if(document.querySelectorAll("div")[divs].getAttribute("aria-label").indexOf("의 메시지") != -1) {
-            message_div = document.querySelectorAll("div")[divs];
-            break;
+    try {
+        message_div.getAttribute("aria-label").indexOf("의 메세지")   
+    }
+    catch {
+        for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
+            if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
+                continue;
+            }
+            if(document.querySelectorAll("div")[divs].getAttribute("aria-label").indexOf("의 메시지") != -1) {
+                message_div = document.querySelectorAll("div")[divs];
+                break;
+            }
         }
     }
+
     // console.log(message_div);
     for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
         // console.log("div."+message_div.className+">div");
