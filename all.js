@@ -72,9 +72,9 @@ setInterval(function() {
                                     continue;
                                 }
                                 nowcont = _message_content.innerHTML;
-                                content = "<span style='color: red;'>삐-</span>"
+                                content = "<span style='color: red;'>삐-</span>";
                                 // content = "<span style='color: red;' onmouseover='this.innerHTML = \""+blacklisted_swears[temp_3]+"\";' onmouseout='this.innerHTML = \"삐-\"'>삐-</span>";
-                                if(_message_content.innerHTML.indexOf(blacklisted_swears[temp_3]) != -1 {
+                                if(_message_content.innerHTML.indexOf(blacklisted_swears[temp_3])) != -1 {
                                     _message_content.innerHTML = _message_content.innerHTML.replace(new RegExp(blacklisted_swears[temp_3], "g"), content);
                                 }
                                 if(_message_content.innerHTML != nowcont) {
