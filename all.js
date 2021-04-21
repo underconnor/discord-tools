@@ -47,6 +47,18 @@ setInterval(function() {
             console.log("gotdiv is undefined. continue");
             continue;
         }
+        try {
+            if(gotdiv.className.indexOf("groupStart-") != -1){
+                _message = gotdiv.childNodes;
+                _isblocked = _message[0].childNodes[0].childNodes[0].className.indexOf("blockedSystemMessage") != -1;
+                if(_isblocked) {
+                    document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = "";
+                }
+            }
+        }
+        catch {
+            console.log("error but ignored");
+        }
         if(gotdiv.className.indexOf("message-") != -1 && gotdiv.id.indexOf("chat-messages-") != -1) {
             _message = gotdiv.childNodes;
             for(temp_1 = 0; temp_1 < _message.length; temp_1++) {
