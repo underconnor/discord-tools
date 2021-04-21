@@ -39,7 +39,7 @@ setInterval(function() {
                 _message = gotdiv.childNodes;
                 _isblocked = _message[0].childNodes[0].childNodes[0].className.indexOf("blockedSystemMessage") != -1;
                 if(_isblocked) {
-                    gotdiv.outerHTML = "";
+                    document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = "";
                 }
             }
         }
