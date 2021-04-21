@@ -1,7 +1,6 @@
 # discord-tools
 디스코드 툴킷 모음입니다. *도움이 되셨다면 스타를 한번만..*
 <br>
-**'욕설 검열기'는 일부 컴퓨터에서 렉이 걸릴 수 있습니다.**
 *맨션 비활성화를 제외한 모든 스크립트는 디스코드 한국어 버전에서만 작동을 보장합니다.*
 
  * [디스코드 자동 답장 맨션 비활성화](https://github.com/fsanchir/discord-tools/blob/main/auto-disable-reply-mention.js) <br> 자동으로 답장 맨션을 비활성화 합니다. 수동으로 다시 켤 수 있습니다.
