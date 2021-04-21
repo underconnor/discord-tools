@@ -46,3 +46,5 @@ setInterval(function() {
         catch {
             console.log("error but ignored");
         }
+    }
+}, 200);
