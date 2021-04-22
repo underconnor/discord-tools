@@ -41,7 +41,7 @@ setInterval(function() {
                     _isblocked = _message[0].childNodes[0].childNodes[0].className.indexOf("blockedSystemMessage") != -1;
                 }
                 catch {
-                
+                    continue;
                 }
                 if(_isblocked) {
                     document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = "";
