@@ -1,5 +1,5 @@
 // 한번에 작동시키는 코드로, 업데이트가 늦을 수 있으며, 버그 또한 존재할 수 있습니다.
-// 렉이 엄청납니다
+// 렉이 엄청납니다 인데 고쳤어요
 var divs = 0;
 var message_div = null;
 var gotdiv = null;
