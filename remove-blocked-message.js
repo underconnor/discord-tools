@@ -1,4 +1,4 @@
-// 
+var dont_remove = false;
 
 for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
     if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
@@ -12,6 +12,21 @@ for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
 
 setInterval(function() {
     try {
+        var msg = document.querySelectorAll("main>form>div>div>div>div>div>div>div>div>span>span>span")[0].innerHTML;
+        if(msg.indexOf(",dontremove ") == 0) {
+            msg = msg.replace(",dontremove ", "");
+            if(msg == "true") {
+                dont_remove = true;
+            }
+            if(msg == "false") {
+                dont_remove = false;
+            }
+        }
+    }
+    catch {
+        
+    }
+    try {
         message_div.getAttribute("aria-label").indexOf("의 메세지")   
     }
     catch {
@@ -24,6 +39,9 @@ setInterval(function() {
                 break;
             }
         }
+    }
+    if(dont_remove) {
+        return false;
     }
     for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
         // console.log("div."+message_div.className+">div");
