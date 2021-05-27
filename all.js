@@ -42,6 +42,7 @@ setInterval(function() {
         var msg = document.querySelectorAll("main>form>div>div>div>div>div>div>div>div>span>span>span")[0].innerHTML;
         if(msg.indexOf(",dontremove ") == 0) {
             msg = msg.replace(",dontremove ", "");
+            msg = msg.replace("<br>", "");
             if(msg == "true") {
                 dont_remove = true;
             }
