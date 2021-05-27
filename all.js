@@ -3,6 +3,7 @@
 var divs = 0;
 var message_div = null;
 var gotdiv = null;
+var dont_remove = false;
 var totallength = 0;
 var user_enabled = false;
 var addlistener = true;
@@ -37,6 +38,22 @@ setInterval(function() {
         }
     }
 
+    try {
+        var msg = document.querySelectorAll("main>form>div>div>div>div>div>div>div>div>span>span>span")[0].innerHTML;
+        if(msg.indexOf(",dontremove ") == 0) {
+            msg = msg.replace(",dontremove ", "");
+            if(msg == "true") {
+                dont_remove = true;
+            }
+            if(msg == "false") {
+                dont_remove = false;
+            }
+        }
+    }
+    catch {
+        
+    }
+
     // console.log(message_div);
     for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
         // console.log("div."+message_div.className+">div");
@@ -56,7 +73,7 @@ setInterval(function() {
                 catch {
                     continue;
                 }
-                if(_isblocked) {
+                if(_isblocked && !dont_remove) {
                     document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = "";
                 }
             }
