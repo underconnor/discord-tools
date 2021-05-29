@@ -4,9 +4,9 @@ setInterval(function() {
     // console.log("user_enabled: "+user_enabled);
     // console.log("addlistener"+addlistener);
     // console.log(document.querySelectorAll("form>div>div>div>div>div>div")[1]);
-    if(!reply_ui_check() && document.querySelectorAll("form>div>div>div>div>div>div")[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
+    if(!reply_ui_check() && document.querySelectorAll("form>div>div>div>div>div>div>div")[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
         document.querySelectorAll("form>div>div>div>div>div>div")[1].dataset.auto = true;
-        document.querySelectorAll("form>div>div>div>div>div>div")[1].click();
+        document.querySelectorAll("form>div>div>div>div>div>div>div")[1].click();
     }
     else if(reply_ui_check()) {
         user_enabled = false;
