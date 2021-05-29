@@ -168,9 +168,9 @@ setInterval(function() {
         addlistener = true;
     }
 
-//   if(document.querySelector("#app-mount>div>div>div>div>div>div>div>button>div>span") != null) {
-//     document.querySelector("#app-mount>div>div>div>div>div>div>div>button>div>span").click()
-//   }
+  if(document.querySelector("#app-mount>div>div>div>div>div>div>div>button>div>span") != null) {
+    document.querySelector("#app-mount>div>div>div>div>div>div>div>button>div>span").click()
+  }
 }, 200);
 
 function reply_ui_check() {
