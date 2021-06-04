@@ -14,6 +14,7 @@ for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
 setInterval(function() {
     try {
         var msg = document.querySelectorAll("main>form>div>div>div>div>div>div>div>div>span>span>span")[0].innerHTML;
+        msg = msg.replace("<br>", "")
         if(msg.indexOf(",dontremove ") == 0) {
             msg = msg.replace(",dontremove ", "");
             if(msg == "true") {
@@ -23,8 +24,13 @@ setInterval(function() {
                 dont_remove = false;
             }
         }
+    }
+    catch {
+        
+    }
+    try {
         if(msg.indexOf(",removecontentsonly ") == 0) {
-            msg.replace(",removecontentsonly ", "").replace("<br>", "");
+            msg.replace(",removecontentsonly ", "");
             if(msg == "true") {
                 remove_contents_only = true;
             }
@@ -34,7 +40,7 @@ setInterval(function() {
         }
     }
     catch {
-        
+    
     }
     try {
         message_div.getAttribute("aria-label").indexOf("의 메세지")   
