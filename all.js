@@ -174,20 +174,19 @@ setInterval(function() {
             }
         }
     }
-    var mention_button = document.querySelectorAll("form>div>div>div>div>div>div>div")[1];
-    var mention_button_div = document.querySelectorAll("form>div>div>div>div>div>div")[1];
-    if(!reply_ui_check() && document.querySelectorAll("form>div>div>div>div>div>div>div")[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
+
+    if(!reply_ui_check() && document.querySelectorAll("form>div>div>div>div>div>div>div>div")[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
         mention_button_div.dataset.auto = true;
-        document.querySelectorAll("form>div>div>div>div>div>div>div")[1].click();
+        document.querySelectorAll("form>div>div>div>div>div>div>div>div")[1].click();
     }
     else if(reply_ui_check()) {
         user_enabled = false;
     }
 
     if(!reply_ui_check() && addlistener) {
-        document.querySelectorAll("form>div>div>div>div>div>div")[1].addEventListener("click", function() {
-            if(document.querySelectorAll("form>div>div>div>div>div>div")[1].dataset.auto !== undefined && document.querySelectorAll("form>div>div>div>div>div>div")[1].dataset.auto == true) {
-                document.querySelectorAll("form>div>div>div>div>div>div")[1].dataset.auto == false;
+        document.querySelectorAll("form>div>div>div>div>div>div>div")[1].addEventListener("click", function() {
+            if(document.querySelectorAll("form>div>div>div>div>div>div>div")[1].dataset.auto !== undefined && document.querySelectorAll("form>div>div>div>div>div>div")[1].dataset.auto == true) {
+                document.querySelectorAll("form>div>div>div>div>div>div>div")[1].dataset.auto == false;
                 user_enabled = false;
             }
             else {
