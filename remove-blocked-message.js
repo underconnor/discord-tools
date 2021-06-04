@@ -1,4 +1,5 @@
 var dont_remove = false;
+var remove_contents_only = false;
 
 for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
     if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
@@ -20,6 +21,15 @@ setInterval(function() {
             }
             if(msg == "false") {
                 dont_remove = false;
+            }
+        }
+        if(msg.indexOf(",removecontentsonly ") == 0) {
+            msg.replace(",removecontentsonly ", "");
+            if(msg == "true") {
+                remove_contents_only = true;
+            }
+            if(msg == "false") {
+                remove_contents_only = false;
             }
         }
     }
@@ -62,7 +72,11 @@ setInterval(function() {
                     continue;
                 }
                 if(_isblocked) {
-                    document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = "";
+                    var outerhtml = "";
+                    if(remove_contents_only) {
+                        outerhtml = "<div style='color: red; font-size: x-large; font-weight: bold'>차단된 메세지</div>";
+                    }
+                    document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = outerhtml;
                 }
             }
         }
