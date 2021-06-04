@@ -56,9 +56,6 @@ setInterval(function() {
         return false;
     }
     for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
-        // console.log("div."+message_div.className+">div");
-        // console.log(document.querySelectorAll("div."+message_div.className+">div"));
-        // console.log(document.querySelectorAll("div."+message_div.className+">div").length);
         gotdiv = document.querySelectorAll("div."+message_div.className+">div")[divs];
         if(gotdiv === undefined) {
             console.log("gotdiv is undefined. continue");
@@ -76,7 +73,7 @@ setInterval(function() {
                 if(_isblocked) {
                     var outerhtml = "";
                     if(remove_contents_only) {
-                        outerhtml = "<div style='color: red; font-size: x-large; font-weight: bold'>차단된 메세지</div>";
+                        outerhtml = "<div style='color: red; font-size: large; text-align: center; font-weight: bold'>차단된 메세지</div>";
                     }
                     document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = outerhtml;
                 }
