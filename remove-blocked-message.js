@@ -24,7 +24,7 @@ setInterval(function() {
             }
         }
         if(msg.indexOf(",removecontentsonly ") == 0) {
-            msg.replace(",removecontentsonly ", "");
+            msg.replace(",removecontentsonly ", "").replace("<br>", "");
             if(msg == "true") {
                 remove_contents_only = true;
             }
