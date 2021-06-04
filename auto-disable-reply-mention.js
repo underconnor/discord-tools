@@ -1,22 +1,20 @@
 var user_enabled = false;
 var addlistener = true;
 setInterval(function() {
-    // console.log("user_enabled: "+user_enabled);
-    // console.log("addlistener"+addlistener);
-    // console.log(document.querySelectorAll("form>div>div>div>div>div>div")[1]);
-    if(!reply_ui_check() && document.querySelectorAll("form>div>div>div>div>div>div>div")[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
-        document.querySelectorAll("form>div>div>div>div>div>div")[1].dataset.auto = true;
-        document.querySelectorAll("form>div>div>div>div>div>div>div")[1].click();
+    var mention_button = document.querySelectorAll("form>div>div>div>div>div>div>div")[1];
+    var mention_button_div = document.querySelectorAll("form>div>div>div>div>div>div")[1];
+    if(!reply_ui_check() && mention_button.getAttribute("aria-checked") == "true" && user_enabled == false) {
+        mention_button_div.dataset.auto = true;
+        mention_button.click();
     }
     else if(reply_ui_check()) {
         user_enabled = false;
     }
 
     if(!reply_ui_check() && addlistener) {
-        document.querySelectorAll("form>div>div>div>div>div>div")[1].addEventListener("click", function() {
-            var it = document.querySelectorAll("form>div>div>div>div>div>div")[1];
-            if(it.dataset.auto !== undefined && it.dataset.auto == true) {
-                it.dataset.auto == false;
+        mention_button_div.addEventListener("click", function() {
+            if(mention_button_div.dataset.auto !== undefined && mention_button_div.dataset.auto == true) {
+                mention_button_div.dataset.auto == false;
                 user_enabled = false;
             }
             else {
