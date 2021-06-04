@@ -3,6 +3,7 @@ var divs = 0;
 var message_div = null;
 var gotdiv = null;
 var dont_remove = false;
+var remove_contents_only = false;
 var totallength = 0;
 var user_enabled = false;
 var addlistener = true;
@@ -37,11 +38,11 @@ setInterval(function() {
         }
     }
 
+    var msg = document.querySelectorAll("main>form>div>div>div>div>div>div>div>div>span>span>span")[0].innerHTML;
+    msg = msg.replace("<br>", "");
     try {
-        var msg = document.querySelectorAll("main>form>div>div>div>div>div>div>div>div>span>span>span")[0].innerHTML;
         if(msg.indexOf(",dontremove ") == 0) {
             msg = msg.replace(",dontremove ", "");
-            msg = msg.replace("<br>", "");
             if(msg == "true") {
                 dont_remove = true;
             }
@@ -50,9 +51,19 @@ setInterval(function() {
             }
         }
     }
-    catch {
-        
+    catch {}
+    try {
+        if(msg.indexOf(",removecontentsonly ") == 0) {
+            msg = msg.replace(",removecontentsonly ", "");
+            if(msg == "true") {
+                remove_contents_only = true;
+            }
+            if(msg == "false") {
+                remove_contents_only = false;
+            }
+        }
     }
+    catch {}
 
     // console.log(message_div);
     for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
