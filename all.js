@@ -12,6 +12,23 @@ var _message = null;
 var interval_is_running = false;
 var blacklisted_swears = ["씨발", "개새끼", "병신", "ㅄ", "ㅂㅅ", "좆", "ㅆㅂ", "ㅅㅂ", "욕설로 분류되는 욕설이 아닌 매우 착한 테스트용 텍스트"]
 
+try {
+    try {
+        if(document.querySelector("#app-mount>div>div>div>div>div>div>div>div>section>div>div>div>div").innerHTML == "FSanchir") {
+            remove_contents_only = true;
+        }
+    }
+    catch {}
+    try {
+        if(document.querySelectorAll("#app-mount>div>div>div>div>div>div>div>div>section>div")[1].childNodes[1].childNodes[0].childNodes[0].innerHTML == "FSanchir") {
+            remove_contents_only = true;
+        }
+    }
+    catch {}
+    
+}
+catch {} // 쓸 데 없지만 뭔가 추가 예정이에요
+
 for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
     if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
         continue;
@@ -85,7 +102,11 @@ setInterval(function() {
                     continue;
                 }
                 if(_isblocked && !dont_remove) {
-                    document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = "";
+                    var outerhtml = "";
+                    if(remove_contents_only) {
+                        outerhtml = "<div style='text-align: center;'><br><br><span style='color: red; font-size: large; text-align: center; font-weight: bold; margin: 1em; border: 7px solid black;'>차단된 메세지</span></div><br><br>";
+                    }
+                    document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = outerhtml;
                 }
             }
         }
