@@ -1,6 +1,24 @@
 var dont_remove = false;
 var remove_contents_only = false;
 
+try {
+    try {
+        if(document.querySelector("#app-mount>div>div>div>div>div>div>div>div>section>div>div>div>div").innerHTML == "FSanchir") {
+            remove_contents_only = true;
+        }
+    }
+    catch {}
+    try {
+        if(document.querySelectorAll("#app-mount>div>div>div>div>div>div>div>div>section>div")[1].childNodes[1].childNodes[0].childNodes[0].innerHTML == "FSanchir") {
+            remove_contents_only = true;
+        }
+    }
+    catch {}
+    
+}
+catch {} // 쓸 데 없지만 뭔가 추가 예정이에요
+
+
 for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
     if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
         continue;
@@ -23,7 +41,7 @@ setInterval(function() {
             if(msg == "false") {
                 dont_remove = false;
             }
-        }
+        }   
     }
     catch {}
     try {
@@ -52,9 +70,6 @@ setInterval(function() {
             }
         }
     }
-    if(dont_remove) {
-        return false;
-    }
     for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
         gotdiv = document.querySelectorAll("div."+message_div.className+">div")[divs];
         if(gotdiv === undefined) {
@@ -70,10 +85,10 @@ setInterval(function() {
                 catch {
                     continue;
                 }
-                if(_isblocked) {
+                if(_isblocked && !dont_remove) {
                     var outerhtml = "";
                     if(remove_contents_only) {
-                        outerhtml = "<div style='color: red; font-size: large; text-align: center; font-weight: bold'>차단된 메세지</div>";
+                        outerhtml = "<div style='text-align: center;'><br><br><span style='color: red; font-size: large; text-align: center; font-weight: bold; margin: 1em; border: 7px solid black;'>차단된 메세지</span></div><br><br>";
                     }
                     document.querySelectorAll("div."+message_div.className+">div")[divs].outerHTML = outerhtml;
                 }
