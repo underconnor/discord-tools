@@ -1,4 +1,5 @@
 var dont_remove = false;
+var msg_scan_amount = 30;
 var remove_contents_only = false;
 
 try {
@@ -70,7 +71,7 @@ setInterval(function() {
             }
         }
     }
-    for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
+    for(divs = document.querySelectorAll("div."+message_div.className+">div").length - msg_scan_amount+1; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
         gotdiv = document.querySelectorAll("div."+message_div.className+">div")[divs];
         if(gotdiv === undefined) {
             console.log("gotdiv is undefined. continue");
