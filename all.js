@@ -9,6 +9,7 @@ var user_enabled = false;
 var addlistener = true;
 var range_temp = 0;
 var _message = null;
+var msg_scan_amount = 30;
 var interval_is_running = false;
 var blacklisted_swears = ["씨발", "개새끼", "병신", "ㅄ", "ㅂㅅ", "좆", "ㅆㅂ", "ㅅㅂ", "욕설로 분류되는 욕설이 아닌 매우 착한 테스트용 텍스트"]
 
@@ -83,7 +84,7 @@ setInterval(function() {
     catch {}
 
     // console.log(message_div);
-    for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
+    for(divs = document.querySelectorAll("div."+message_div.className+">div").length - msg_scan_amount+1; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
         // console.log("div."+message_div.className+">div");
         // console.log(document.querySelectorAll("div."+message_div.className+">div"));
         // console.log(document.querySelectorAll("div."+message_div.className+">div").length);
