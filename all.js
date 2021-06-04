@@ -176,7 +176,7 @@ setInterval(function() {
     }
 
     if(!reply_ui_check() && document.querySelectorAll("form>div>div>div>div>div>div>div>div")[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
-        mention_button_div.dataset.auto = true;
+        document.querySelectorAll("form>div>div>div>div>div>div>div")[1].dataset.auto = true;
         document.querySelectorAll("form>div>div>div>div>div>div>div>div")[1].click();
     }
     else if(reply_ui_check()) {
