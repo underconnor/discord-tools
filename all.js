@@ -9,7 +9,7 @@ var user_enabled = false;
 var addlistener = true;
 var range_temp = 0;
 var _message = null;
-var msg_scan_amount = 30;
+var msg_scan_amount = 10;
 var interval_is_running = false;
 var blacklisted_swears = ["씨발", "개새끼", "병신", "ㅄ", "ㅂㅅ", "좆", "ㅆㅂ", "ㅅㅂ", "욕설로 분류되는 욕설이 아닌 매우 착한 테스트용 텍스트"]
 
