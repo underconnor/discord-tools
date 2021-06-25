@@ -1,8 +1,9 @@
 var user_enabled = false;
 var addlistener = true;
+var button = "form>div>div>div>div>div>div>div>div>div>div";
+var b_div = "form>div>div>div>div>div>div>div>div>div";
 setInterval(function() {
-    var button = "form>div>div>div>div>div>div>div>div>div>div";
-    var b_div = "form>div>div>div>div>div>div>div>div>div";
+
 
     if(!reply_ui_check() && document.querySelectorAll(button)[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
         document.querySelectorAll(b_div)[1].dataset.auto = true;
