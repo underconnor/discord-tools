@@ -9,6 +9,8 @@ var user_enabled = false;
 var addlistener = true;
 var range_temp = 0;
 var _message = null;
+var button = "form>div>div>div>div>div>div>div>div>div>div";
+var b_div = "form>div>div>div>div>div>div>div>div>div";
 var msg_scan_amount = 10;
 var interval_is_running = false;
 var blacklisted_swears = ["씨발", "개새끼", "병신", "ㅄ", "ㅂㅅ", "좆", "ㅆㅂ", "ㅅㅂ", "욕설로 분류되는 욕설이 아닌 매우 착한 테스트용 텍스트"]
@@ -174,10 +176,6 @@ setInterval(function() {
             }
         }
     }
-
-
-    var button = "form>div>div>div>div>div>div>div>div>div>div";
-    var b_div = "form>div>div>div>div>div>div>div>div>div";
 
     if(!reply_ui_check() && document.querySelectorAll(button)[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
         document.querySelectorAll(b_div)[1].dataset.auto = true;
