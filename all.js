@@ -15,7 +15,7 @@ var blacklisted_swears = ["씨발", "개새끼", "병신", "ㅄ", "ㅂㅅ", "좆
 
 try {
     try {
-        if(document.querySelector("#app-mount>div>div>div>div>div>div>div>div>section>div>div>div>div").innerHTML == "FSanchir") {
+            if(document.querySelector("#app-mount>div>div>div>div>div>div>div>div>section>div>div>div>div").innerHTML == "FSanchir") {
             remove_contents_only = true;
         }
     }
@@ -175,18 +175,22 @@ setInterval(function() {
         }
     }
 
-    if(!reply_ui_check() && document.querySelectorAll("form>div>div>div>div>div>div>div>div")[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
-        document.querySelectorAll("form>div>div>div>div>div>div>div")[1].dataset.auto = true;
-        document.querySelectorAll("form>div>div>div>div>div>div>div>div")[1].click();
+
+    var button = "form>div>div>div>div>div>div>div>div>div>div";
+    var b_div = "form>div>div>div>div>div>div>div>div>div";
+
+    if(!reply_ui_check() && document.querySelectorAll(button)[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
+        document.querySelectorAll(b_div)[1].dataset.auto = true;
+        document.querySelectorAll(button)[1].click();
     }
     else if(reply_ui_check()) {
         user_enabled = false;
     }
 
     if(!reply_ui_check() && addlistener) {
-        document.querySelectorAll("form>div>div>div>div>div>div>div")[1].addEventListener("click", function() {
-            if(document.querySelectorAll("form>div>div>div>div>div>div>div")[1].dataset.auto !== undefined && document.querySelectorAll("form>div>div>div>div>div>div")[1].dataset.auto == true) {
-                document.querySelectorAll("form>div>div>div>div>div>div>div")[1].dataset.auto == false;
+        document.querySelectorAll(b_div)[1].addEventListener("click", function() {
+            if(document.querySelectorAll(b_div)[1].dataset.auto !== undefined && document.querySelectorAll(b_div)[1].dataset.auto == true) {
+                document.querySelectorAll(b_div)[1].dataset.auto == false;
                 user_enabled = false;
             }
             else {
@@ -206,7 +210,8 @@ setInterval(function() {
 
 function reply_ui_check() {
     try {
-        return document.querySelectorAll("form>div>div>div>div>div>div")[1].className.indexOf("buttons-") == 0 || document.querySelectorAll("form>div>div>div>div>div>div")[1].className.indexOf("attachWrapper-") == 0;
+        return document.querySelectorAll(b_div)[1].className.indexOf("actions-") != 0;
+        //  || document.querySelectorAll("form>div>div>div>div>div>div")[1].className.indexOf("attachWrapper-") == 0;
     }
     catch {
         return true;
