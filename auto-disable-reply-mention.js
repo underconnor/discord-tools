@@ -8,6 +8,7 @@ setInterval(function() {
     if(!reply_ui_check() && document.querySelectorAll(button)[1].getAttribute("aria-checked") == "true" && user_enabled == false) {
         document.querySelectorAll(b_div)[1].dataset.auto = true;
         document.querySelectorAll(button)[1].click();
+        console.log("Auto-Disabled Reply Mention!");
     }
     else if(reply_ui_check()) {
         user_enabled = false;

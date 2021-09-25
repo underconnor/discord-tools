@@ -3,46 +3,26 @@ var message_div = null;
 var gotdiv = null;
 var _message = null;
 var interval_is_running = false;
-var blacklisted_swears = ["씨발", "개새끼", "병신", "ㅄ", "좆", "ㅆㅂ", "ㅅㅂ", "애미"]
+var blacklisted_swears = ["씨발", "개새끼", "병신", "ㅄ", "좆", "ㅆㅂ", "ㅅㅂ", "애미", "ㅂㅅ"]
 
-for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
-    if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
-        continue;
-    }
-    if(document.querySelectorAll("div")[divs].getAttribute("aria-label").indexOf("의 메시지") != -1) {
-        message_div = document.querySelectorAll("div")[divs];
-        break;
-    }
-}
+var message_ol = document.querySelectorAll("ol")[0];
 
 setInterval(function() {
     try {
-        message_div.getAttribute("aria-label").indexOf("의 메세지")   
+        message_ol.getAttribute("aria-label").indexOf("의 메세지")
     }
     catch {
-        for(divs = 0; divs < document.querySelectorAll("div").length; divs++) {
-            if(document.querySelectorAll("div")[divs].getAttribute("aria-label") == null) {
-                continue;
-            }
-            if(document.querySelectorAll("div")[divs].getAttribute("aria-label").indexOf("의 메시지") != -1) {
-                message_div = document.querySelectorAll("div")[divs];
-                break;
-            }
-        }
+        message_ol = document.querySelectorAll("ol")[0]
     }
 
-    // console.log(message_div);
-    for(divs = document.querySelectorAll("div."+message_div.className+">div").length - 11; divs < document.querySelectorAll("div."+message_div.className+">div").length; divs++) {
-        // console.log("div."+message_div.className+">div");
-        // console.log(document.querySelectorAll("div."+message_div.className+">div"));
-        // console.log(document.querySelectorAll("div."+message_div.className+">div").length);
-        gotdiv = document.querySelectorAll("div."+message_div.className+">div")[divs];
-        if(gotdiv === undefined) {
-            console.log("gotdiv is undefined. continue");
+    for(lis = document.querySelectorAll("ol."+message_ol.className+">li").length - 11; lis < document.querySelectorAll("ol."+message_ol.className+">li").length; lis++) {
+        gotli = document.querySelectorAll("ol."+message_div.className+">li")[lis];
+        if(gotli === undefined || gotli == null) {
+            console.log("gotli is undefined. continue");
             continue;
         }
-        if(gotdiv.className.indexOf("message-") != -1 && gotdiv.id.indexOf("chat-messages-") != -1) {
-            _message = gotdiv.childNodes;
+        if(gotli.id.indexOf("chat-messages-") != -1) {
+            _message = gotli.childNodes;
             for(temp_1 = 0; temp_1 < _message.length; temp_1++) {
                 if(_message[temp_1] === undefined) {
                     console.log("undefined. continue");
